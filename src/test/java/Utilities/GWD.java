@@ -30,7 +30,8 @@ public class GWD {
         return driver;
     }
 
-    public static void quitDriver() {
+    public static void quitDriver()
+    {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -43,12 +44,12 @@ public class GWD {
         }
     }
 
-    public static void wait(int second) {
+    public static void wait(int second)
+    {
         try {
             Thread.sleep(second * 1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
-
 }

@@ -1,0 +1,3 @@
+Found a bug on Lely.com search function. Found 27 search result which contains "happy", but search function listed
+29 search result. 1 result on page1 and 1 result on page2 do not contain "happy". Because of this, scenario and 6th step
+of test will fail.

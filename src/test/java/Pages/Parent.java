@@ -47,6 +47,5 @@ public class Parent {
     {
         waitUntilVisible(element);
         Assert.assertTrue(element.getText().toLowerCase().contains(text.toLowerCase()));
-
     }
 }

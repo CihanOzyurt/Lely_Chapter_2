@@ -7,8 +7,6 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import static Utilities.GWD.driver;
@@ -78,23 +76,27 @@ public class Lely_Steps {
     }
 
     @When("Select {string} from dropdown menu")
-    public void selectFromDropdownMenu(String arg0) {
+    public void selectFromDropdownMenu(String arg0)
+    {
         dc.waitAndSelect("luna/eur/");
     }
 
     @And("Verify that catalog can be seen")
-    public void verifyThatCatalogCanBeSeen() {
+    public void verifyThatCatalogCanBeSeen()
+    {
         dc.findAndContainsText("catalogVerify","LUNA EUR");
     }
 
     @Then("click to view this document")
-    public void clickToViewThisDocument() {
+    public void clickToViewThisDocument()
+    {
         dc.findAndClick("viewDocument");
     }
 
     String mainWindowId= driver.getWindowHandle();
     @And("verify that document opened on a new tab")
-    public void verifyThatDocumentOpenedOnANewTab() {
+    public void verifyThatDocumentOpenedOnANewTab()
+    {
         String mainWindowId= driver.getWindowHandle();
         driver.getWindowHandles().forEach(tab->driver.switchTo().window(tab));
         String newTabID= driver.getWindowHandle();
@@ -102,24 +104,18 @@ public class Lely_Steps {
     }
 
     @Then("return to previous tab and download the document")
-    public void returnToPreviousTabAndDownloadTheDocument() {
+    public void returnToPreviousTabAndDownloadTheDocument()
+    {
         driver.close();
         driver.switchTo().window(mainWindowId);
         dc.findAndClick("downloadDocumentButton");
     }
 
-
-
-
-
     @And("Verifies document is downloaded")
-    public void verifiesDocumentIsDownloaded() {
+    public void verifiesDocumentIsDownloaded()
+    {
         File file = new File("C:\\Users\\ozyur\\Downloads\\D-S032VT_-.pdf");//!!!file extension must seen in the Downloads file or delete ".pdf"
         GWD.wait(3);
         Assert.assertTrue(file.exists());
-
-
-
-
     }
 }

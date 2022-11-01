@@ -10,7 +10,8 @@ import java.util.List;
 
 public class DialogContent extends Parent{
 
-    public DialogContent() {
+    public DialogContent()
+    {
         PageFactory.initElements(GWD.getDriver(), this);
     }
     @FindBy(id = "cookienotice-button-accept")
@@ -27,9 +28,6 @@ public class DialogContent extends Parent{
 
     @FindBy(xpath = "//*[@class=\"button button-tertiary\"]")
     private WebElement searchButton;
-
-    @FindBy(css = "[class='item item-with-image'] [class='item-description'] :nth-child(1)")
-    public List<WebElement> actualHappyList;
 
     @FindBy(xpath = "//*[@class=\"page\"]")
     public List<WebElement> pageList;
@@ -91,17 +89,20 @@ public class DialogContent extends Parent{
         verifyContainsText(myElement,text);
     }
 
-    public void waitAndSelect(String string){
+    public void waitAndSelect(String string)
+    {
         Select ddmenu=new Select(menu);
         GWD.wait(1);
         ddmenu.selectByValue(string);
     }
 
-    public WebElement getSearchResultNumberVerify() {
+    public WebElement getSearchResultNumberVerify()
+    {
         return searchResultNumberVerify;
     }
 
-    public WebElement getMenu() {
+    public WebElement getMenu()
+    {
         return menu;
     }
 }
